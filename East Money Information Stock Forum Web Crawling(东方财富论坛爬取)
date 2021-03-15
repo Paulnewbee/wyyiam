@@ -28,42 +28,41 @@ def web_crawling_v2(browser,stock_num):
         new_web = temp_web.split(',')[0] + ',' + temp_num + ',' + temp_web.split(',')[2]
         browser.get(new_web)
         for i in range(1,a-2):
-                    #time.sleep(3)
-                    temp = []
-                    temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
-                                         [i].find_elements_by_xpath('span')[0].text)
+            temp = []
+            temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
+                                 [i].find_elements_by_xpath('span')[0].text)
 
-                    temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
-                                        [i].find_elements_by_xpath('span')[1].text)
+            temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
+                                [i].find_elements_by_xpath('span')[1].text)
 
-                    try:
-                        temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
-                                    [i].find_elements_by_xpath('span')[2].find_element_by_xpath('em').text)
-                    except:
-                        temp.append(None)
+            try:
+                temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
+                            [i].find_elements_by_xpath('span')[2].find_element_by_xpath('em').text)
+            except:
+                temp.append(None)
 
-                    temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
-                                 [i].find_elements_by_xpath('span')[2].find_element_by_xpath('a').text)
+            temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
+                         [i].find_elements_by_xpath('span')[2].find_element_by_xpath('a').text)
 
-                    temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
-                                        [i].find_elements_by_xpath('span')[2].find_element_by_xpath('a').get_attribute('href'))
+            temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
+                                [i].find_elements_by_xpath('span')[2].find_element_by_xpath('a').get_attribute('href'))
 
-                    temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
-                                        [i].find_elements_by_xpath('span')[3].text)
+            temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
+                                [i].find_elements_by_xpath('span')[3].text)
 
-                    temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
-                                         [i].find_elements_by_xpath('span')[3].find_elements_by_xpath('a')[0].get_attribute('data-poptype'))
+            temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
+                                 [i].find_elements_by_xpath('span')[3].find_elements_by_xpath('a')[0].get_attribute('data-poptype'))
 
-                    temp.append((browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
-                                        [i].find_elements_by_xpath('span')[3].find_elements_by_xpath('a')[0].get_attribute('href')))
+            temp.append((browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
+                                [i].find_elements_by_xpath('span')[3].find_elements_by_xpath('a')[0].get_attribute('href')))
 
-                    temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
-                                [2].find_elements_by_xpath('span')[4].text)
+            temp.append(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')
+                        [2].find_elements_by_xpath('span')[4].text)
 
 
-        for z in range(0,len(combo)):
-            combo[z].append(temp[z])
-                    #print(i)
+            for z in range(0,len(combo)):
+                combo[z].append(temp[z])
+                        #print(i)
                     
 browser = webdriver.Chrome('your_path')
 reading_times = []
