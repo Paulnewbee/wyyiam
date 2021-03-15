@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
+from tdqm import tdqm
 
 def web_crawling_v2(browser,stock_num):
     
@@ -19,8 +20,8 @@ def web_crawling_v2(browser,stock_num):
     new_web = temp_web.split(',')[0] + ',' + temp_num + ',' + temp_web.split(',')[2]
     browser.get(new_web)
     a = len(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div'))
-    for x in range(3,int((browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')[a-2].
-                           find_element_by_xpath('span/span/span').text))):
+    for x in tdqm(range(3,int((browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')[a-2].
+                           find_element_by_xpath('span/span/span').text)))):
         temp_str = '_' + str(x)
         temp_web = temp_web.replace(old_str,temp_str)
         old_str = temp_str
