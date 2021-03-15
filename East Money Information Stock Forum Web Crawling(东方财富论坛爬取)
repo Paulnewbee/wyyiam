@@ -16,6 +16,8 @@ def web_crawling_v2(browser,stock_num):
     temp_num = str(stock_num)
     temp_last = temp_web.split(',')[2] 
     old_str = '_2'
+    new_web = temp_web.split(',')[0] + ',' + temp_num + ',' + temp_web.split(',')[2]
+    browser.get(new_web)
     a = len(browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div'))
     for x in range(3,int((browser.find_elements_by_xpath('//*[@id="articlelistnew"]/div')[a-2].
                            find_element_by_xpath('span/span/span').text))):
